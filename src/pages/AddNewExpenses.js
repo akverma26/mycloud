@@ -26,14 +26,14 @@ export default function AddNewExpensesPage() {
     const [csrf, setCSRF] = useState("");
 
     useEffect(() => {
-        fetchForServer("/private/expenses/")
-            .then((res) => res.json())
-            .then((res) => {
-                setCSRF(res.data.data.csrf_token);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        // fetchForServer("/private/expenses/")
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //         setCSRF(res.data.data.csrf_token);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
     }, []);
 
     return (

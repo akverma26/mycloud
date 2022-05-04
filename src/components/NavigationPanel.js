@@ -8,7 +8,7 @@ export default function NavigationPanel() {
         <div className="navigation-panel">
             {buttons.map((button, index) => (
                 <Link className="button" key={index} to={button.path}>
-                    {button.name}
+                    {button.text}
                 </Link>
             ))}
         </div>
