@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 import fetchForServer from "./../static/js/backendConnection";
 
-export default function AddNewExpensesPage() {
+export default function AddHomeLoanTransactionsPage() {
     const submitForm = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        fetchForServer("/private/expenses/", {
+        fetchForServer("/private/home-loan-transactions/", {
             method: "POST",
             headers: {
                 "X-CSRFToken": document.querySelector(
@@ -21,40 +21,22 @@ export default function AddNewExpensesPage() {
                     res.message + " Refresh this page to add new entry.";
             });
     };
-
-    const [csrf, setCSRF] = useState("");
-
-    useEffect(() => {
-        // fetchForServer("/private/expenses/")
-        //     .then((res) => res.json())
-        //     .then((res) => {
-        //         setCSRF(res.data.data.csrf_token);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
-    }, []);
-
     return (
         <div id="form">
             <form
-                action="#"
+                action=""
                 method="post"
                 autoComplete="off"
                 onSubmit={submitForm}
             >
-                <input type="hidden" name="csrfmiddlewaretoken" value={csrf} />
+                <input type="hidden" name="csrfmiddlewaretoken" value="" />
                 <p>
                     <label htmlFor="id_date">Date:</label>
                     <input
                         type="datetime-local"
                         name="date"
                         required
-                        // defaultValue={`${formatDate(
-                        //     new Date(),
-                        //     "yyyy-MM-dd HH:mm:ss"
-                        // ).replace(" ", "T")}`}
-                        // id="id_date"
+                        id="id_date"
                     />
                 </p>
 
@@ -70,6 +52,17 @@ export default function AddNewExpensesPage() {
                 </p>
 
                 <p>
+                    <label htmlFor="id_to">To:</label>
+                    <input
+                        type="text"
+                        name="to"
+                        maxLength="50"
+                        required
+                        id="id_to"
+                    />
+                </p>
+
+                <p>
                     <label htmlFor="id_description">Description:</label>
                     <textarea
                         name="description"
@@ -78,39 +71,12 @@ export default function AddNewExpensesPage() {
                         required
                         id="id_description"
                     ></textarea>
-                </p>
-
-                <p>
-                    <label htmlFor="id_category">Category:</label>
-                    <select
-                        name="category"
-                        required
-                        id="id_category"
-                        defaultValue="Essential"
-                    >
-                        <option value="Essential">Essential</option>
-
-                        <option value="Extra">Extra</option>
-
-                        <option value="Can't Decide">Can't Decide</option>
-                    </select>
-                </p>
-
-                <p>
-                    <label htmlFor="id_tags">Tags:</label>
-                    <input type="text" name="tags" required id="id_tags" />
-                </p>
-
-                <p>
-                    <label htmlFor="id_behalf">Behalf:</label>
-                    <input type="text" name="behalf" required id="id_behalf" />
 
                     <input
                         type="hidden"
                         name="id"
-                        required
-                        value={`${Date.now()}`}
                         id="id_id"
+                        value={`${Date.now()}`}
                     />
                 </p>
                 <input type="submit" value="Submit" />

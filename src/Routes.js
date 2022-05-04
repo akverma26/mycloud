@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import NavigationPanel from "./components/NavigationPanel";
 import AddNewExpensesPage from "./pages/AddNewExpenses";
+import AddHomeLoanTransactionsPage from "./pages/AddHomeLoanTransactions";
 
 const PREFIX = "/mycloud";
 
@@ -11,6 +12,12 @@ const _ROUTES = {
         element: <AddNewExpensesPage />,
         text: "Add New Expenses",
         name: "add-new-expenses",
+    },
+    addHomeLoanTransactions: {
+        path: PREFIX + "/#add-home-loan-transactions",
+        element: <AddHomeLoanTransactionsPage />,
+        text: "Add Home Loan Transactions",
+        name: "add-home-loan-transactions",
     },
     home: {
         path: PREFIX + "/",
