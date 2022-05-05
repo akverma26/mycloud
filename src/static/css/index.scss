@@ -107,3 +107,22 @@ header {
         }
     }
 }
+form {
+    >div {
+        margin-bottom: 20px;
+    }
+}
+
+.get-suggestions-button {
+    color: blue;
+    text-decoration: underline;
+    font-size: $font-size-s2;
+    cursor: pointer;
+
+    span {
+        color: black;
+        cursor: default;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}

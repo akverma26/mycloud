@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import fetchForServer from "./../static/js/backendConnection";
+import getSuggestionsClickEvent from "./../static/js/getSuggestions";
 
 export default function AddHomeLoanTransactionsPage() {
     const submitForm = (e) => {
@@ -21,6 +22,11 @@ export default function AddHomeLoanTransactionsPage() {
                     res.message + " Refresh this page to add new entry.";
             });
     };
+
+    useEffect(() => {
+        getSuggestionsClickEvent("/private/home-loan-transactions/");
+    }, []);
+
     return (
         <div id="form">
             <form
@@ -30,7 +36,7 @@ export default function AddHomeLoanTransactionsPage() {
                 onSubmit={submitForm}
             >
                 <input type="hidden" name="csrfmiddlewaretoken" value="" />
-                <p>
+                <div>
                     <label htmlFor="id_date">Date:</label>
                     <input
                         type="datetime-local"
@@ -38,9 +44,9 @@ export default function AddHomeLoanTransactionsPage() {
                         required
                         id="id_date"
                     />
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_amount">Amount:</label>
                     <input
                         type="number"
@@ -49,9 +55,9 @@ export default function AddHomeLoanTransactionsPage() {
                         required
                         id="id_amount"
                     />
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_to">To:</label>
                     <input
                         type="text"
@@ -60,9 +66,15 @@ export default function AddHomeLoanTransactionsPage() {
                         required
                         id="id_to"
                     />
-                </p>
+                    <div
+                        className="get-suggestions-button"
+                        suggestions-for="to"
+                    >
+                        Get Suggestions
+                    </div>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_description">Description:</label>
                     <textarea
                         name="description"
@@ -78,7 +90,7 @@ export default function AddHomeLoanTransactionsPage() {
                         id="id_id"
                         value={`${Date.now()}`}
                     />
-                </p>
+                </div>
                 <input type="submit" value="Submit" />
             </form>
         </div>
