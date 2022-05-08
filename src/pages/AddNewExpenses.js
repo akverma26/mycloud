@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import fetchForServer from "./../static/js/backendConnection";
+import getSuggestionsClickEvent from "./../static/js/getSuggestions";
 
 export default function AddNewExpensesPage() {
     const submitForm = (e) => {
@@ -25,14 +26,7 @@ export default function AddNewExpensesPage() {
     const [csrf, setCSRF] = useState("");
 
     useEffect(() => {
-        // fetchForServer("/private/expenses/")
-        //     .then((res) => res.json())
-        //     .then((res) => {
-        //         setCSRF(res.data.data.csrf_token);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
+        getSuggestionsClickEvent("/private/expenses/");
     }, []);
 
     return (
@@ -44,7 +38,7 @@ export default function AddNewExpensesPage() {
                 onSubmit={submitForm}
             >
                 <input type="hidden" name="csrfmiddlewaretoken" value={csrf} />
-                <p>
+                <div>
                     <label htmlFor="id_date">Date:</label>
                     <input
                         type="datetime-local"
@@ -56,9 +50,9 @@ export default function AddNewExpensesPage() {
                         // ).replace(" ", "T")}`}
                         // id="id_date"
                     />
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_amount">Amount:</label>
                     <input
                         type="number"
@@ -67,9 +61,9 @@ export default function AddNewExpensesPage() {
                         required
                         id="id_amount"
                     />
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_description">Description:</label>
                     <textarea
                         name="description"
@@ -78,9 +72,9 @@ export default function AddNewExpensesPage() {
                         required
                         id="id_description"
                     ></textarea>
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_category">Category:</label>
                     <select
                         name="category"
@@ -94,16 +88,28 @@ export default function AddNewExpensesPage() {
 
                         <option value="Can't Decide">Can't Decide</option>
                     </select>
-                </p>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_tags">Tags:</label>
                     <input type="text" name="tags" required id="id_tags" />
-                </p>
+                    <div
+                        className="get-suggestions-button"
+                        suggestions-for="tags"
+                    >
+                        Get Suggestions
+                    </div>
+                </div>
 
-                <p>
+                <div>
                     <label htmlFor="id_behalf">Behalf:</label>
                     <input type="text" name="behalf" required id="id_behalf" />
+                    <div
+                        className="get-suggestions-button"
+                        suggestions-for="behalf"
+                    >
+                        Get Suggestions
+                    </div>
 
                     <input
                         type="hidden"
@@ -112,8 +118,10 @@ export default function AddNewExpensesPage() {
                         value={`${Date.now()}`}
                         id="id_id"
                     />
-                </p>
-                <input type="submit" value="Submit" />
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
         </div>
     );

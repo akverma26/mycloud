@@ -123,4 +123,22 @@ header .app-version {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+
+form > div {
+  margin-bottom: 20px;
+}
+
+.get-suggestions-button {
+  color: blue;
+  text-decoration: underline;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.get-suggestions-button span {
+  color: black;
+  cursor: default;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
 /*# sourceMappingURL=index.css.map */
