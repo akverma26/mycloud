@@ -10,12 +10,14 @@ export default function getSuggestionsClickEvent(path) {
                 let suggestionsFor = e.target.getAttribute("suggestions-for");
 
                 fetchForServer(
-                    path + "?action=get-suggestions&for=" + suggestionsFor
+                    path + "?action=get-suggestions&for=" + suggestionsFor,
+                    {
+                        // cache: "no-cache",
+                    }
                 )
                     .then((res) => res.json())
                     .then((res) => {
                         let html = res;
-                        console.log(res.data.suggestions);
                         if (res.data.suggestions) {
                             html = "";
                             res.data.suggestions.map(

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import fetchForServer from "./../static/js/backendConnection";
 import getSuggestionsClickEvent from "./../static/js/getSuggestions";
+import { showLoader, hideLoader } from "../static/js/loader";
 
 export default function AddNewExpensesPage() {
     const submitForm = (e) => {
+        // showLoader();
         e.preventDefault();
         const formData = new FormData(e.target);
         fetchForServer("/private/expenses/", {
@@ -20,6 +22,9 @@ export default function AddNewExpensesPage() {
             .then((res) => {
                 document.getElementById("form").innerHTML =
                     res.message + " Refresh this page to add new entry.";
+                fetchForServer("/private/expenses/", {
+                    cache: "no-cache",
+                });
             });
     };
 
@@ -27,6 +32,9 @@ export default function AddNewExpensesPage() {
 
     useEffect(() => {
         getSuggestionsClickEvent("/private/expenses/");
+        document
+            .querySelectorAll(".get-suggestions-button")
+            .forEach((_) => _.click());
     }, []);
 
     return (

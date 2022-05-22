@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import fetchForServer from "./../static/js/backendConnection";
 import getSuggestionsClickEvent from "./../static/js/getSuggestions";
+import { showLoader, hideLoader } from "../static/js/loader";
 
 export default function AddHomeLoanTransactionsPage() {
     const submitForm = (e) => {
+        // showLoader();
         e.preventDefault();
         const formData = new FormData(e.target);
         fetchForServer("/private/home-loan-transactions/", {
@@ -20,11 +22,17 @@ export default function AddHomeLoanTransactionsPage() {
             .then((res) => {
                 document.getElementById("form").innerHTML =
                     res.message + " Refresh this page to add new entry.";
+                fetchForServer("/private/home-loan-transactions/", {
+                    cache: "no-cache",
+                });
             });
     };
 
     useEffect(() => {
         getSuggestionsClickEvent("/private/home-loan-transactions/");
+        document
+            .querySelectorAll(".get-suggestions-button")
+            .forEach((_) => _.click());
     }, []);
 
     return (

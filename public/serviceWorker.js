@@ -53,11 +53,12 @@ self.addEventListener("activate", async (event) => {
     }
 });
 
-// Event listener, triggers when app requests for any resource
+// const CACHE_THESE = ["/private/expenses/?action=get-suggestions"];
 self.addEventListener("fetch", (event) => {
-    return; // Don't cache anything for now
+    // let _ = CACHE_THESE.filter((_) => event.request.url.includes(_));
+    // if (_.length === 0) return;
     if (event.request.method !== "GET") return;
-    if (event.request.url.startsWith()) return;
+    // if (event.request.url.startsWith()) return;
     event.respondWith(
         // On Get fetch request try to serve it from out cache
         caches
@@ -66,6 +67,7 @@ self.addEventListener("fetch", (event) => {
                 // Check if there is a match for our fetch request
                 return cache.match(event.request).then((response) => {
                     // If there is a match return response else fetch from network
+                    if (event.request.cache === "no-cache") response = false;
                     return (
                         response ||
                         fetch(event.request).then((response) => {
