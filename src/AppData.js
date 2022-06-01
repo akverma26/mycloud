@@ -10,7 +10,7 @@ if (process.env.NODE_ENV.includes("dev")) {
 
 const APP_DATA = {
     APP_NAME: "MyCloud",
-    VERSION: "1.0.5-alpha",
+    VERSION: "1.0.6-alpha",
     SERVER_URL,
 };
 

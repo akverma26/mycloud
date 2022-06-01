@@ -1,6 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Roboto-Regular";
 }
 
 html,
@@ -9,6 +10,7 @@ body {
   min-width: 100%;
   padding: 0;
   margin: 0;
+  background: #eae6f7;
 }
 
 body {
@@ -44,19 +46,9 @@ code {
 }
 
 header {
-  background: #252525;
+  background: white;
   min-width: 100%;
-  color: #e1e1e1;
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -66,13 +58,12 @@ header {
 }
 
 header .header {
-  width: 100%;
-  color: #e1e1e1;
+  color: #323232;
   text-decoration: none;
 }
 
 header .app-version {
-  color: #c8c8c8;
+  color: #656565;
   font-size: 10px;
 }
 
@@ -93,15 +84,16 @@ header .app-version {
 }
 
 .navigation-panel .section-wrapper {
-  -webkit-box-shadow: 0 0 2px #969696;
-          box-shadow: 0 0 2px #969696;
+  background: white;
   margin-bottom: 30px;
+  border-radius: 5px;
 }
 
 .navigation-panel .section-wrapper .header {
-  color: black;
+  color: #656565;
   padding: 10px;
   padding-bottom: 15px;
+  font-weight: bold;
 }
 
 .navigation-panel .section-wrapper .buttons-wrapper {
@@ -133,22 +125,57 @@ header .app-version {
 .navigation-panel .section-wrapper .buttons-wrapper .button .icon img {
   width: 100%;
   max-width: 35px;
-  -webkit-filter: contrast(0.3);
-          filter: contrast(0.3);
+  -webkit-filter: invert(0.4);
+          filter: invert(0.4);
 }
 
 .navigation-panel .section-wrapper .buttons-wrapper .button .text {
-  color: #646464;
+  color: #323232;
   font-size: 12px;
 }
 
 form > div {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+form > div label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #656565;
+  padding: 0 5px;
+}
+
+form > div input,
+form > div textarea,
+form > div select {
+  background: white;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  color: #323232;
+}
+
+form > div textarea {
+  resize: none;
+}
+
+form > div input[type='submit'] {
+  cursor: pointer;
 }
 
 .get-suggestions-button {
-  color: blue;
-  text-decoration: underline;
   font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,13 +184,16 @@ form > div {
       flex-wrap: wrap;
   max-width: 100%;
   cursor: pointer;
+  color: #656565;
 }
 
 .get-suggestions-button span {
-  color: black;
   cursor: default;
   margin-right: 5px;
   margin-bottom: 5px;
+  background: white;
+  padding: 1px 8px;
+  border-radius: 3px;
 }
 
 .list-view-wrapper {

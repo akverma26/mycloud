@@ -3,12 +3,19 @@ $font-size-s1: 14px;
 $font-size-s2: 12px;
 $font-size-s3: 10px;
 $font-size-s4: 8px;
-$theme-bg-color: #252525;
-$theme-color: rgb(225, 225, 225);
+$theme-body-bg-color: #eae6f7;
+$theme-bg-color: white;
+$theme-bg-color-2: white;
+$theme-color: #323232;
+$theme-color-2: #656565;
 $header-height: 50px;
+$theme-font: 'Roboto-Regular';
+$theme-font-bold: 'Roboto-Bold';
+$theme-font-thin: 'Roboto-Thin';
 
 * {
     box-sizing: border-box;
+    font-family: $theme-font;
 }
 
 html,
@@ -17,6 +24,7 @@ body {
     min-width: 100%;
     padding: 0;
     margin: 0;
+    background: $theme-body-bg-color;
 }
 
 body {
@@ -46,13 +54,13 @@ code {
 }
 
 header {
-    background: $theme-bg-color;
+    background: $theme-bg-color-2;
     min-width: 100%;
-    color: rgb(225, 225, 225);
     padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // text-align: left;
+    // display: flex;
+    // justify-content: left;
+    // align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -61,13 +69,13 @@ header {
     z-index: 999;
 
     .header {
-        width: 100%;
+        // width: 100%;
         color: $theme-color;
         text-decoration: none;
     }
 
     .app-version {
-        color: rgb(200, 200, 200);
+        color: $theme-color-2;
         font-size: $font-size-s3;
     }
 }
@@ -83,13 +91,15 @@ header {
     flex-direction: column;
 
     .section-wrapper {
-        box-shadow: 0 0 2px rgb(150, 150, 150);
+        background: $theme-bg-color;
         margin-bottom: 30px;
+        border-radius: 5px;
 
         .header {
-            color: black;
+            color: $theme-color-2;
             padding: 10px;
             padding-bottom: 15px;
+            font-weight: bold;
         }
 
         .buttons-wrapper {
@@ -113,12 +123,12 @@ header {
                     img {
                         width: 100%;
                         max-width: 35px;
-                        filter: contrast(0.3);
+                        filter: invert(0.4);
                     }
                 }
 
                 .text {
-                    color: rgb(100, 100, 100);
+                    color: $theme-color;
                     font-size: 12px;
                 }
                 }
@@ -127,24 +137,58 @@ header {
 }
 form {
     >div {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $theme-color-2;
+            padding: 0 5px;
+        }
+
+        input,
+        textarea,
+        select {
+            background: $theme-bg-color;
+            border: none;
+            box-shadow: none;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            color: $theme-color;
+
+            &:focus {}
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type='submit'] {
+            cursor: pointer;
+        }
     }
 }
 
 .get-suggestions-button {
-    color: blue;
-    text-decoration: underline;
     font-size: $font-size-s2;
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
     cursor: pointer;
+    color: $theme-color-2;
 
     span {
-        color: black;
         cursor: default;
         margin-right: 5px;
         margin-bottom: 5px;
+        background: $theme-bg-color-2;
+        padding: 1px 8px;
+        border-radius: 3px;
     }
 }
 .list-view-wrapper {
