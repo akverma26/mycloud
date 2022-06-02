@@ -5,8 +5,8 @@ import AddNewExpensesPage from "./pages/AddNewExpenses";
 import ListDailyExpensesPage from "./pages/ListDailyExpenses";
 import AddHomeLoanTransactionsPage from "./pages/AddHomeLoanTransactions";
 import ListHomeLoanTransactionsPage from "./pages/ListHomeLoanTransactions";
-import addButtonIcon from "./static/icons/add-button.png";
-import listIcon from "./static/icons/list.png";
+import addButtonIcon from "./static/images/add-button.png";
+import listIcon from "./static/images/list.png";
 
 const PREFIX = "/mycloud";
 

@@ -7,7 +7,9 @@ import "./static/css/fonts.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-serviceWorkerRegistration.register();
+if (!process.env.NODE_ENV.includes("dev")) {
+    serviceWorkerRegistration.register();
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -52,6 +52,7 @@ export default function AddNewExpensesPage() {
                         type="datetime-local"
                         name="date"
                         required
+                        placeholder="Enter Date"
                         // defaultValue={`${formatDate(
                         //     new Date(),
                         //     "yyyy-MM-dd HH:mm:ss"
@@ -68,6 +69,7 @@ export default function AddNewExpensesPage() {
                         step="any"
                         required
                         id="id_amount"
+                        placeholder="Enter Amount"
                     />
                 </div>
 
@@ -76,9 +78,10 @@ export default function AddNewExpensesPage() {
                     <textarea
                         name="description"
                         cols="40"
-                        rows="10"
+                        rows="1"
                         required
                         id="id_description"
+                        placeholder="Enter Description"
                     ></textarea>
                 </div>
 
@@ -100,7 +103,13 @@ export default function AddNewExpensesPage() {
 
                 <div>
                     <label htmlFor="id_tags">Tags:</label>
-                    <input type="text" name="tags" required id="id_tags" />
+                    <input
+                        type="text"
+                        name="tags"
+                        placeholder="Enter Tags"
+                        required
+                        id="id_tags"
+                    />
                     <div
                         className="get-suggestions-button"
                         suggestions-for="tags"
@@ -111,7 +120,13 @@ export default function AddNewExpensesPage() {
 
                 <div>
                     <label htmlFor="id_behalf">Behalf:</label>
-                    <input type="text" name="behalf" required id="id_behalf" />
+                    <input
+                        type="text"
+                        placeholder="Enter Behalf"
+                        name="behalf"
+                        required
+                        id="id_behalf"
+                    />
                     <div
                         className="get-suggestions-button"
                         suggestions-for="behalf"
