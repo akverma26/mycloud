@@ -51,6 +51,7 @@ export default function AddHomeLoanTransactionsPage() {
                         name="date"
                         required
                         id="id_date"
+                        placeholder="Enter Date"
                     />
                 </div>
 
@@ -62,6 +63,7 @@ export default function AddHomeLoanTransactionsPage() {
                         step="any"
                         required
                         id="id_amount"
+                        placeholder="Enter Amount"
                     />
                 </div>
 
@@ -73,6 +75,7 @@ export default function AddHomeLoanTransactionsPage() {
                         maxLength="50"
                         required
                         id="id_to"
+                        placeholder="Enter Payment Done To"
                     />
                     <div
                         className="get-suggestions-button"
@@ -85,6 +88,7 @@ export default function AddHomeLoanTransactionsPage() {
                 <div>
                     <label htmlFor="id_description">Description:</label>
                     <textarea
+                        placeholder="Enter Description"
                         name="description"
                         cols="40"
                         rows="10"
@@ -99,7 +103,10 @@ export default function AddHomeLoanTransactionsPage() {
                         value={`${Date.now()}`}
                     />
                 </div>
-                <input type="submit" value="Submit" />
+
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
         </div>
     );
